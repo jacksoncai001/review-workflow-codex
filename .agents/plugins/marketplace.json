@@ -1,0 +1,20 @@
+{
+  "name": "review-workflow-codex",
+  "interface": {
+    "displayName": "Review Workflow Codex"
+  },
+  "plugins": [
+    {
+      "name": "review-workflow-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/review-workflow-codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

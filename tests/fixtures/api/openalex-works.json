@@ -1,0 +1,33 @@
+{
+  "meta": {"count": 2},
+  "results": [
+    {
+      "id": "https://openalex.org/W100",
+      "doi": "https://doi.org/10.1000/anchor",
+      "title": "A nearest technical review",
+      "publication_year": 2024,
+      "type": "review",
+      "cited_by_count": 42,
+      "authorships": [
+        {"author": {"display_name": "A. Author"}}
+      ],
+      "abstract_inverted_index": {"Nearest": [0], "review": [1], "methods": [2]},
+      "topics": [{"display_name": "Diagnostics"}],
+      "open_access": {"is_oa": true, "oa_status": "gold", "oa_url": "https://example.org/anchor.pdf"}
+    },
+    {
+      "id": "https://openalex.org/W200",
+      "doi": "https://doi.org/10.1000/bridge",
+      "title": "Validation methods for inverse diagnostics",
+      "publication_year": 2023,
+      "type": "article",
+      "cited_by_count": 17,
+      "authorships": [
+        {"author": {"display_name": "B. Author"}}
+      ],
+      "abstract_inverted_index": {"Validation": [0], "limits": [1]},
+      "topics": [{"display_name": "Inverse problems"}],
+      "open_access": {"is_oa": false, "oa_status": "closed", "oa_url": null}
+    }
+  ]
+}

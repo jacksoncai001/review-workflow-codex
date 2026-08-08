@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "description": "Questions Codex presents at the start of one reciprocal round.",
+  "properties": {
+    "codex_questions": {
+      "items": {
+        "maxLength": 1000,
+        "minLength": 3,
+        "type": "string"
+      },
+      "maxItems": 5,
+      "minItems": 3,
+      "title": "Codex Questions",
+      "type": "array"
+    },
+    "operator_questions_required_max": {
+      "const": 5,
+      "default": 5,
+      "title": "Operator Questions Required Max",
+      "type": "integer"
+    },
+    "operator_questions_required_min": {
+      "const": 3,
+      "default": 3,
+      "title": "Operator Questions Required Min",
+      "type": "integer"
+    },
+    "round_number": {
+      "minimum": 1,
+      "title": "Round Number",
+      "type": "integer"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "round_number",
+    "codex_questions"
+  ],
+  "title": "QuestionPacket",
+  "type": "object"
+}

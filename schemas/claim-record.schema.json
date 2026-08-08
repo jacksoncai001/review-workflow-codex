@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "ClaimStrength": {
+      "enum": [
+        "tentative",
+        "qualified",
+        "strong",
+        "absolute"
+      ],
+      "title": "ClaimStrength",
+      "type": "string"
+    },
+    "ClaimType": {
+      "enum": [
+        "definition",
+        "observation",
+        "comparison",
+        "trend",
+        "consensus",
+        "causal",
+        "novelty"
+      ],
+      "title": "ClaimType",
+      "type": "string"
+    },
+    "EvidenceBasis": {
+      "enum": [
+        "full_text",
+        "abstract",
+        "metadata"
+      ],
+      "title": "EvidenceBasis",
+      "type": "string"
+    },
+    "EvidenceLink": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "$ref": "#/$defs/EvidenceBasis"
+        },
+        "independence_group": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Independence Group"
+        },
+        "locator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Locator"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "study_design": {
+          "$ref": "#/$defs/StudyDesign",
+          "default": "unknown"
+        },
+        "support_direction": {
+          "$ref": "#/$defs/SupportDirection"
+        }
+      },
+      "required": [
+        "source_id",
+        "basis",
+        "support_direction"
+      ],
+      "title": "EvidenceLink",
+      "type": "object"
+    },
+    "StudyDesign": {
+      "enum": [
+        "experimental",
+        "mechanistic",
+        "observational",
+        "simulation",
+        "review",
+        "unknown"
+      ],
+      "title": "StudyDesign",
+      "type": "string"
+    },
+    "SupportDirection": {
+      "enum": [
+        "supports",
+        "contradicts",
+        "mixed"
+      ],
+      "title": "SupportDirection",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "minLength": 3,
+      "title": "Claim Ceiling",
+      "type": "string"
+    },
+    "claim_id": {
+      "title": "Claim Id",
+      "type": "string"
+    },
+    "claim_type": {
+      "$ref": "#/$defs/ClaimType"
+    },
+    "counterevidence": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Counterevidence",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceLink"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "is_core": {
+      "default": false,
+      "title": "Is Core",
+      "type": "boolean"
+    },
+    "prohibited_extrapolations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Prohibited Extrapolations",
+      "type": "array"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "search_boundary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Search Boundary"
+    },
+    "strength": {
+      "$ref": "#/$defs/ClaimStrength"
+    },
+    "text": {
+      "minLength": 3,
+      "title": "Text",
+      "type": "string"
+    },
+    "uncertainty": {
+      "minLength": 3,
+      "title": "Uncertainty",
+      "type": "string"
+    }
+  },
+  "required": [
+    "claim_id",
+    "text",
+    "claim_type",
+    "strength",
+    "claim_ceiling",
+    "uncertainty"
+  ],
+  "title": "ClaimRecord",
+  "type": "object"
+}

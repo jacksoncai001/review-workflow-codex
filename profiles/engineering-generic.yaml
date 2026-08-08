@@ -1,0 +1,36 @@
+schema_version: 1
+profile_id: engineering-generic
+display_name: Generic Engineering Review
+domains:
+  - engineering
+synonyms:
+  validation:
+    - verification
+    - benchmark
+    - uncertainty assessment
+inclusion_clues:
+  - measurement method
+  - model assumptions
+  - validation evidence
+exclusion_clues:
+  - unsupported marketing claim
+evidence_priorities:
+  - direct method description
+  - benchmark against an independent reference
+  - uncertainty and boundary conditions
+measurement_chains:
+  - name: generic measurement chain
+    steps:
+      - physical quantity
+      - sensor response
+      - preprocessing
+      - inference
+      - validation
+newcomer_concepts:
+  - system boundary
+  - measurement chain
+  - validation reference
+  - uncertainty
+prohibited_equivalences:
+  - Classification performance is not automatically equivalent to physical-state reconstruction.
+  - A convenient proxy is not automatically the unperturbed ground-truth quantity.

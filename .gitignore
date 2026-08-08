@@ -1,0 +1,15 @@
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+__pycache__/
+*.py[cod]
+build/
+dist/
+.coverage
+htmlcov/
+review-workspace/
+*.pdf
+*.docx
+*.doc
+*.env

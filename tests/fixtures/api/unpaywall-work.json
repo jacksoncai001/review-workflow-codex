@@ -1,0 +1,12 @@
+{
+  "doi": "10.1000/anchor",
+  "is_oa": true,
+  "oa_status": "gold",
+  "best_oa_location": {
+    "url": "https://example.org/article",
+    "url_for_pdf": "https://example.org/anchor.pdf",
+    "host_type": "publisher",
+    "version": "publishedVersion",
+    "license": "cc-by"
+  }
+}

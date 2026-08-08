@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "review-workflow-codex"
+version = "0.1.0"
+description = "Local-first workflow harness for evidence-grounded technical reviews"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "mcp>=1.0,<2",
+  "pydantic>=2.10,<3",
+  "pyyaml>=6,<7",
+  "typer>=0.16,<1",
+]
+
+[project.optional-dependencies]
+discovery = [
+  "httpx>=0.28,<1",
+]
+extract = [
+  "markitdown[docx,pdf]>=0.1,<1",
+  "pypdf>=5,<7",
+  "python-docx>=1.1,<2",
+]
+layout = [
+  "docling>=2,<3",
+]
+full = [
+  "docling>=2,<3",
+  "httpx>=0.28,<1",
+  "markitdown[docx,pdf]>=0.1,<1",
+  "pypdf>=5,<7",
+  "python-docx>=1.1,<2",
+]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.12,<1",
+]
+
+[project.scripts]
+review-flow = "review_workflow.cli:main"
+review-flow-mcp = "review_workflow.mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/jacksoncai001/review-workflow-codex"
+Repository = "https://github.com/jacksoncai001/review-workflow-codex.git"
+Issues = "https://github.com/jacksoncai001/review-workflow-codex/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/review_workflow"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

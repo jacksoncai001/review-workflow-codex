@@ -1,0 +1,719 @@
+{
+  "$defs": {
+    "AcquisitionPriority": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2"
+      ],
+      "title": "AcquisitionPriority",
+      "type": "string"
+    },
+    "AcquisitionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "access_basis": {
+          "anyOf": [
+            {
+              "maxLength": 255,
+              "minLength": 3,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Access Basis"
+        },
+        "affected_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Affected Claim Ids",
+          "type": "array"
+        },
+        "authors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authors",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "maxLength": 255,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Doi"
+        },
+        "evidence_type": {
+          "maxLength": 255,
+          "minLength": 1,
+          "title": "Evidence Type",
+          "type": "string"
+        },
+        "landing_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Landing Url",
+          "type": "string"
+        },
+        "license_or_terms": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "License Or Terms"
+        },
+        "pdf_url": {
+          "anyOf": [
+            {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pdf Url"
+        },
+        "priority": {
+          "$ref": "#/$defs/AcquisitionPriority"
+        },
+        "reason": {
+          "maxLength": 2000,
+          "minLength": 3,
+          "title": "Reason",
+          "type": "string"
+        },
+        "request_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$",
+          "title": "Request Id",
+          "type": "string"
+        },
+        "resolution_note": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 3,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resolution Note"
+        },
+        "route": {
+          "$ref": "#/$defs/AcquisitionRoute",
+          "default": "operator_supply"
+        },
+        "schema_version": {
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "status": {
+          "default": "open",
+          "pattern": "^(open|fulfilled|dismissed)$",
+          "title": "Status",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 1000,
+          "minLength": 3,
+          "title": "Title",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 255,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "maximum": 2200,
+              "minimum": 1600,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Year"
+        }
+      },
+      "required": [
+        "request_id",
+        "title",
+        "landing_url",
+        "priority",
+        "reason",
+        "evidence_type"
+      ],
+      "title": "AcquisitionRequest",
+      "type": "object"
+    },
+    "AcquisitionRoute": {
+      "enum": [
+        "automatic_open",
+        "operator_supply"
+      ],
+      "title": "AcquisitionRoute",
+      "type": "string"
+    },
+    "ArtifactRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "maxLength": 128,
+          "minLength": 3,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "kind": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Kind",
+          "type": "string"
+        },
+        "phase": {
+          "maxLength": 16,
+          "minLength": 1,
+          "title": "Phase",
+          "type": "string"
+        },
+        "producer": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Producer",
+          "type": "string"
+        },
+        "relative_path": {
+          "format": "path",
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/ArtifactStatus",
+          "default": "created"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "kind",
+        "relative_path",
+        "content_hash",
+        "producer",
+        "phase"
+      ],
+      "title": "ArtifactRecord",
+      "type": "object"
+    },
+    "ArtifactStatus": {
+      "enum": [
+        "created",
+        "verified",
+        "stale",
+        "rejected"
+      ],
+      "title": "ArtifactStatus",
+      "type": "string"
+    },
+    "DisclosureRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_at": {
+          "format": "date-time",
+          "title": "Approved At",
+          "type": "string"
+        },
+        "approved_by": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Approved By",
+          "type": "string"
+        },
+        "destination": {
+          "maxLength": 255,
+          "minLength": 1,
+          "title": "Destination",
+          "type": "string"
+        },
+        "disclosure_id": {
+          "maxLength": 128,
+          "minLength": 3,
+          "title": "Disclosure Id",
+          "type": "string"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires At"
+        },
+        "payload_classes": {
+          "items": {
+            "$ref": "#/$defs/PayloadClass"
+          },
+          "minItems": 1,
+          "title": "Payload Classes",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "purpose": {
+          "maxLength": 1000,
+          "minLength": 3,
+          "title": "Purpose",
+          "type": "string"
+        },
+        "revoked_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Revoked At"
+        },
+        "schema_version": {
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "disclosure_id",
+        "destination",
+        "payload_classes",
+        "purpose",
+        "approved_by",
+        "approved_at"
+      ],
+      "title": "DisclosureRecord",
+      "type": "object"
+    },
+    "ExecutionProfile": {
+      "enum": [
+        "full",
+        "windows-lite"
+      ],
+      "title": "ExecutionProfile",
+      "type": "string"
+    },
+    "GateRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approved At"
+        },
+        "approved_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approved By"
+        },
+        "gate_id": {
+          "title": "Gate Id",
+          "type": "string"
+        },
+        "status": {
+          "default": "pending",
+          "enum": [
+            "pending",
+            "approved"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gate_id"
+      ],
+      "title": "GateRecord",
+      "type": "object"
+    },
+    "OutstandingQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "packet_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Packet Id",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": true,
+          "title": "Payload",
+          "type": "object"
+        }
+      },
+      "required": [
+        "packet_id",
+        "payload"
+      ],
+      "title": "OutstandingQuestion",
+      "type": "object"
+    },
+    "PayloadClass": {
+      "enum": [
+        "bibliographic_metadata",
+        "query_text",
+        "short_snippet",
+        "full_text",
+        "draft_prose",
+        "credential"
+      ],
+      "title": "PayloadClass",
+      "type": "string"
+    },
+    "PhaseId": {
+      "enum": [
+        "preflight",
+        "0",
+        "1",
+        "2A",
+        "2B",
+        "2C",
+        "2D",
+        "2E",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "title": "PhaseId",
+      "type": "string"
+    },
+    "PublicationMode": {
+      "enum": [
+        "single",
+        "companion"
+      ],
+      "title": "PublicationMode",
+      "type": "string"
+    },
+    "ResumeAction": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": true,
+          "title": "Parameters",
+          "type": "object"
+        },
+        "phase": {
+          "$ref": "#/$defs/PhaseId"
+        },
+        "step": {
+          "maxLength": 255,
+          "minLength": 1,
+          "title": "Step",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "phase",
+        "step"
+      ],
+      "title": "ResumeAction",
+      "type": "object"
+    },
+    "ReviewType": {
+      "enum": [
+        "narrative",
+        "critical",
+        "technical"
+      ],
+      "title": "ReviewType",
+      "type": "string"
+    },
+    "RunStatus": {
+      "enum": [
+        "READY",
+        "RUNNING",
+        "WAITING_USER",
+        "WAITING_ACQUISITION",
+        "PAUSED_BY_USER",
+        "RETRYABLE_FAILURE",
+        "BLOCKED",
+        "COMPLETED"
+      ],
+      "title": "RunStatus",
+      "type": "string"
+    },
+    "WorkflowEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "details": {
+          "additionalProperties": true,
+          "title": "Details",
+          "type": "object"
+        },
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_type": {
+          "title": "Event Type",
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/$defs/PhaseId"
+        },
+        "step": {
+          "title": "Step",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_type",
+        "phase",
+        "step"
+      ],
+      "title": "WorkflowEvent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "acquisition_requests": {
+      "items": {
+        "$ref": "#/$defs/AcquisitionRequest"
+      },
+      "title": "Acquisition Requests",
+      "type": "array"
+    },
+    "artifacts": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ArtifactRecord"
+      },
+      "title": "Artifacts",
+      "type": "object"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "current_gate": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/GateRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "decisions": {
+      "additionalProperties": true,
+      "title": "Decisions",
+      "type": "object"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/WorkflowEvent"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "execution_profile": {
+      "$ref": "#/$defs/ExecutionProfile"
+    },
+    "external_disclosures": {
+      "items": {
+        "$ref": "#/$defs/DisclosureRecord"
+      },
+      "title": "External Disclosures",
+      "type": "array"
+    },
+    "loop_counters": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Loop Counters",
+      "type": "object"
+    },
+    "outstanding_question": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/OutstandingQuestion"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "phase": {
+      "$ref": "#/$defs/PhaseId",
+      "default": "preflight"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "publication_mode": {
+      "$ref": "#/$defs/PublicationMode"
+    },
+    "resume_action": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ResumeAction"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "return_stack": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Return Stack",
+      "type": "array"
+    },
+    "review_type": {
+      "$ref": "#/$defs/ReviewType"
+    },
+    "schema_version": {
+      "const": 2,
+      "default": 2,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/$defs/RunStatus",
+      "default": "READY"
+    },
+    "step": {
+      "default": "created",
+      "title": "Step",
+      "type": "string"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    },
+    "workspace_root": {
+      "format": "path",
+      "title": "Workspace Root",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "workspace_root",
+    "review_type",
+    "execution_profile",
+    "publication_mode"
+  ],
+  "title": "WorkflowStateV2",
+  "type": "object"
+}

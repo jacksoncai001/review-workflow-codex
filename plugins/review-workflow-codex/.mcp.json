@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "review-workflow-codex": {
+      "command": "review-flow-mcp",
+      "args": []
+    }
+  }
+}

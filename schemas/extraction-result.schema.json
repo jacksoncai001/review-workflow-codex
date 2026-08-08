@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "ExtractionUnit": {
+      "additionalProperties": false,
+      "description": "One locator-bearing unit of extracted text.",
+      "properties": {
+        "kind": {
+          "default": "paragraph",
+          "title": "Kind",
+          "type": "string"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "text"
+      ],
+      "title": "ExtractionUnit",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Parser-neutral, serializable extraction result.",
+  "properties": {
+    "extraction_id": {
+      "title": "Extraction Id",
+      "type": "string"
+    },
+    "figure_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Figure Count",
+      "type": "integer"
+    },
+    "markdown": {
+      "title": "Markdown",
+      "type": "string"
+    },
+    "page_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Page Count"
+    },
+    "parser": {
+      "title": "Parser",
+      "type": "string"
+    },
+    "parser_version": {
+      "title": "Parser Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "source_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Hash",
+      "type": "string"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "tables": {
+      "items": {
+        "items": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": "array"
+      },
+      "title": "Tables",
+      "type": "array"
+    },
+    "units": {
+      "items": {
+        "$ref": "#/$defs/ExtractionUnit"
+      },
+      "title": "Units",
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "source_id",
+    "source_hash",
+    "extraction_id",
+    "parser",
+    "parser_version",
+    "markdown"
+  ],
+  "title": "ExtractionResult",
+  "type": "object"
+}

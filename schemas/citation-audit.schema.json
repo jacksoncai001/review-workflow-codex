@@ -1,0 +1,131 @@
+{
+  "$defs": {
+    "AuditRisk": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "title": "AuditRisk",
+      "type": "string"
+    },
+    "CitationAuditFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Citation Id"
+        },
+        "claim_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Claim Id"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "repair_phase": {
+          "$ref": "#/$defs/PhaseId"
+        },
+        "risk": {
+          "$ref": "#/$defs/AuditRisk"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        }
+      },
+      "required": [
+        "code",
+        "risk",
+        "message",
+        "repair_phase"
+      ],
+      "title": "CitationAuditFinding",
+      "type": "object"
+    },
+    "PhaseId": {
+      "enum": [
+        "preflight",
+        "0",
+        "1",
+        "2A",
+        "2B",
+        "2C",
+        "2D",
+        "2E",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "title": "PhaseId",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "automatic_checks_passed": {
+      "title": "Automatic Checks Passed",
+      "type": "boolean"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/CitationAuditFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "mandatory_manual_checks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Mandatory Manual Checks",
+      "type": "array"
+    },
+    "requires_human_checkpoint": {
+      "default": true,
+      "title": "Requires Human Checkpoint",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "automatic_checks_passed"
+  ],
+  "title": "CitationAuditReport",
+  "type": "object"
+}

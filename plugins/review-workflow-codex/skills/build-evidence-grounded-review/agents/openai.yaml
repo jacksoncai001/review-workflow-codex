@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence-Grounded Review"
+  short_description: "Build traceable reviews from local literature"
+  default_prompt: "Use $build-evidence-grounded-review to start or resume my evidence-grounded review."

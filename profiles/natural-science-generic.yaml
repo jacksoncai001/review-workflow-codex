@@ -1,0 +1,37 @@
+schema_version: 1
+profile_id: natural-science-generic
+display_name: Generic Natural Science Review
+domains:
+  - natural science
+synonyms:
+  reproducibility:
+    - repeatability
+    - replication
+    - independent confirmation
+inclusion_clues:
+  - experimental evidence
+  - observational evidence
+  - mechanistic explanation
+exclusion_clues:
+  - claim without an identifiable evidence source
+evidence_priorities:
+  - primary observation or experiment
+  - independent replication
+  - quantified uncertainty
+measurement_chains:
+  - name: generic observation chain
+    steps:
+      - phenomenon
+      - sampling
+      - instrument
+      - processing
+      - interpretation
+      - independent check
+newcomer_concepts:
+  - observation versus inference
+  - confounding factor
+  - uncertainty
+  - reproducibility
+prohibited_equivalences:
+  - Correlation is not automatically equivalent to mechanism or causation.
+  - Absence from a bounded search is not proof that no prior work exists.

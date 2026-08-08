@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "message": {
+    "items": [
+      {
+        "DOI": "10.1000/anchor",
+        "title": ["A nearest technical review"],
+        "author": [{"given": "A.", "family": "Author"}],
+        "published": {"date-parts": [[2024]]},
+        "type": "journal-article",
+        "URL": "https://doi.org/10.1000/anchor"
+      }
+    ]
+  }
+}

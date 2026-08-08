@@ -1,0 +1,1 @@
+"""Pure workflow domain rules."""

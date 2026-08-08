@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "PhaseId": {
+      "enum": [
+        "preflight",
+        "0",
+        "1",
+        "2A",
+        "2B",
+        "2C",
+        "2D",
+        "2E",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "title": "PhaseId",
+      "type": "string"
+    },
+    "ResumeAction": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": true,
+          "title": "Parameters",
+          "type": "object"
+        },
+        "phase": {
+          "$ref": "#/$defs/PhaseId"
+        },
+        "step": {
+          "maxLength": 255,
+          "minLength": 1,
+          "title": "Step",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "phase",
+        "step"
+      ],
+      "title": "ResumeAction",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "changed_artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Changed Artifacts",
+      "type": "array"
+    },
+    "failure_id": {
+      "title": "Failure Id",
+      "type": "string"
+    },
+    "invalidated_artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Invalidated Artifacts",
+      "type": "array"
+    },
+    "preserved_artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Preserved Artifacts",
+      "type": "array"
+    },
+    "prior_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Prior Hashes",
+      "type": "object"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    },
+    "resume_action": {
+      "$ref": "#/$defs/ResumeAction"
+    },
+    "return_phase": {
+      "$ref": "#/$defs/PhaseId"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "stop_condition": {
+      "title": "Stop Condition",
+      "type": "string"
+    },
+    "trigger_condition": {
+      "title": "Trigger Condition",
+      "type": "string"
+    }
+  },
+  "required": [
+    "failure_id",
+    "trigger_condition",
+    "return_phase",
+    "reason",
+    "invalidated_artifacts",
+    "preserved_artifacts",
+    "resume_action",
+    "stop_condition"
+  ],
+  "title": "ReturnEvent",
+  "type": "object"
+}

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: "1"
+      UV_LINK_MODE: copy
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          python-version: "3.12"
+      - name: Sync tested dependency profiles
+        run: uv sync --locked --extra dev --extra extract --extra discovery
+      - name: Check lock
+        run: uv lock --check
+      - name: Lint
+        run: uv run ruff check .
+      - name: Test
+        run: uv run pytest -q

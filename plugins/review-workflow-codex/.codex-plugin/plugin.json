@@ -1,0 +1,23 @@
+{
+  "name": "review-workflow-codex",
+  "version": "0.1.0",
+  "description": "Local-first, evidence-grounded review workflow for Codex",
+  "author": {
+    "name": "Review Workflow Codex contributors"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Review Workflow Codex",
+    "shortDescription": "Turn local PDFs and drafts into traceable reviews.",
+    "longDescription": "A resumable Phase 0–7 workflow for narrative, critical, and technical reviews, with reciprocal scoping, local extraction, claim-level evidence, citation audits, and migration-ready artifacts.",
+    "developerName": "Review Workflow Codex contributors",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write", "Local MCP"],
+    "defaultPrompt": [
+      "Start a technical review from my local PDFs and draft.",
+      "Resume my review from its saved workspace state.",
+      "Audit my review's claims and citations against local sources."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

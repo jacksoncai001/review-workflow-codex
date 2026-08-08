@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "ArchitectureScores": {
+      "additionalProperties": false,
+      "properties": {
+        "differentiation": {
+          "maximum": 25,
+          "minimum": 0,
+          "title": "Differentiation",
+          "type": "number"
+        },
+        "evidence_feasibility": {
+          "maximum": 10,
+          "minimum": 0,
+          "title": "Evidence Feasibility",
+          "type": "number"
+        },
+        "newcomer_accessibility": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Newcomer Accessibility",
+          "type": "number"
+        },
+        "publication_fit": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Publication Fit",
+          "type": "number"
+        },
+        "reader_need": {
+          "maximum": 20,
+          "minimum": 0,
+          "title": "Reader Need",
+          "type": "number"
+        },
+        "synthesis_actionability": {
+          "maximum": 15,
+          "minimum": 0,
+          "title": "Synthesis Actionability",
+          "type": "number"
+        },
+        "unresolved_value": {
+          "maximum": 20,
+          "minimum": 0,
+          "title": "Unresolved Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "reader_need",
+        "differentiation",
+        "unresolved_value",
+        "synthesis_actionability",
+        "evidence_feasibility",
+        "newcomer_accessibility",
+        "publication_fit"
+      ],
+      "title": "ArchitectureScores",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "central_question": {
+      "title": "Central Question",
+      "type": "string"
+    },
+    "novelty_search_bounded": {
+      "title": "Novelty Search Bounded",
+      "type": "boolean"
+    },
+    "p0_evidence_gaps": {
+      "items": {
+        "type": "string"
+      },
+      "title": "P0 Evidence Gaps",
+      "type": "array"
+    },
+    "positioning_statement": {
+      "title": "Positioning Statement",
+      "type": "string"
+    },
+    "rationales": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Rationales",
+      "type": "object"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "scores": {
+      "$ref": "#/$defs/ArchitectureScores"
+    },
+    "search_boundary": {
+      "title": "Search Boundary",
+      "type": "string"
+    },
+    "target_readers": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Target Readers",
+      "type": "array"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "unresolved_problem": {
+      "title": "Unresolved Problem",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "title",
+    "central_question",
+    "target_readers",
+    "positioning_statement",
+    "unresolved_problem",
+    "scores",
+    "rationales",
+    "novelty_search_bounded",
+    "search_boundary"
+  ],
+  "title": "ArchitectureCandidate",
+  "type": "object"
+}
