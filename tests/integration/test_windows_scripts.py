@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import shutil
 import subprocess
 from pathlib import Path
+
+import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 INSTALLER = ROOT / "scripts" / "install-windows.ps1"
@@ -37,6 +40,10 @@ def test_grobid_script_never_starts_container_without_explicit_start_switch() ->
     assert "Remove-Item" not in text
 
 
+@pytest.mark.skipif(
+    shutil.which("powershell") is None,
+    reason="Windows PowerShell is required for the executable installer smoke test",
+)
 def test_windows_scripts_parse_and_installer_whatif_is_non_mutating() -> None:
     parse_command = (
         "$errors=$null; "
