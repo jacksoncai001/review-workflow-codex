@@ -39,7 +39,7 @@
 
 - [ ] repository owner and repository name confirmed
 - [ ] public or private visibility confirmed
-- [ ] MIT or Apache-2.0 selected by the owner
+- [x] MIT or Apache-2.0 selected by the owner
 - [ ] author/contact and repository URLs placed in plugin metadata
 - [ ] Git identity configured for commits
 - [ ] clean install from the remote URL verified

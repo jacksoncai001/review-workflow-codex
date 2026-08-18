@@ -2,6 +2,8 @@
 
 Review Workflow Codex uses normal package dependencies and external scholarly services but does not vendor their source, prompts, datasets, or model weights.
 
+Eligible original project code, prompts, schemas, configuration, and documentation are licensed under the Apache License 2.0. Files carrying an explicit different license or third-party notice remain governed by that notice.
+
 ## Runtime projects
 
 - [Microsoft MarkItDown](https://github.com/microsoft/markitdown) is an optional local document-to-Markdown adapter. This project installs only its PDF and DOCX extras.
@@ -10,7 +12,7 @@ Review Workflow Codex uses normal package dependencies and external scholarly se
 - [OpenAlex](https://docs.openalex.org/), [Crossref](https://www.crossref.org/documentation/retrieve-metadata/rest-api/), and [Unpaywall](https://unpaywall.org/products/api) supply bibliographic metadata and lawful open-access locations under their respective API terms. The harness does not bypass publisher access controls.
 - The Python MCP SDK, Pydantic, Typer, httpx, PyYAML, pypdf, and python-docx are installed from their normal distributions and remain governed by their upstream licenses.
 
-Consult the locked dependency set and upstream license files before redistribution. This repository is publicly visible but currently has no project-level license; public visibility alone does not grant permission to reuse or redistribute its code beyond applicable law and GitHub's terms.
+Consult the locked dependency set and upstream license files before redistribution. The project-level Apache License 2.0 does not relicense dependencies, external services, model assets, or other third-party material.
 
 ## Framework inspiration without code reuse
 

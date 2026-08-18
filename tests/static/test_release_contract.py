@@ -78,3 +78,23 @@ def test_public_support_policy_is_explicit() -> None:
     assert "best effort" in combined.lower()
     assert "no response-time commitment" in combined.lower()
     assert "do not send" in combined.lower()
+
+
+def test_repository_is_apache_2_0_licensed() -> None:
+    license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+    notice = (ROOT / "NOTICE").read_text(encoding="utf-8")
+    contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    third_party = (ROOT / "docs/third-party-notices.md").read_text(encoding="utf-8")
+    checklist = (ROOT / "docs/release-checklist.md").read_text(encoding="utf-8")
+
+    assert "Apache License" in license_text
+    assert "Version 2.0, January 2004" in license_text
+    assert "END OF TERMS AND CONDITIONS" in license_text
+    assert 'license = "Apache-2.0"' in pyproject
+    assert "Copyright 2026 jacksoncai001" in notice
+    assert "Apache License 2.0" in readme
+    assert "Apache-2.0" in contributing
+    assert "currently has no project-level license" not in third_party
+    assert "- [x] MIT or Apache-2.0 selected by the owner" in checklist

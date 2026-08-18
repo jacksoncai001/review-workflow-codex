@@ -1,5 +1,7 @@
 # Review Workflow Codex
 
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+
 Review Workflow Codex is a local-first Codex plugin, Skill, MCP server, and Python harness for turning a small or large collection of local PDFs plus one or more draft manuscripts into a traceable narrative, critical, or technical review in engineering or natural science.
 
 It is built for the awkward real case: the draft is long, figures and tables matter, some references are irrelevant or duplicated, the intended reader is unclear, nearby reviews already exist, and rewriting everything in one long model context would destroy provenance. The workflow stores durable source identities, reusable extraction, reciprocal scoping decisions, competing architectures, claim-level evidence, citation audits, and targeted repair history in a portable workspace.
@@ -93,7 +95,11 @@ uv run pytest tests/integration/test_grobid_health.py --run-grobid -v
 - [Third-party boundaries](docs/third-party-notices.md)
 - [Release checklist](docs/release-checklist.md)
 
-The source repository is public, but no project-level license has been granted. Public visibility does not by itself grant permission to reuse or redistribute the code beyond applicable law and GitHub's terms. No user manuscript, PDF, extracted private corpus, credential, or domain-specific private conclusion belongs in this source repository.
+Eligible original project code, prompts, schemas, configuration, and documentation in this repository are licensed under the Apache License 2.0 unless a file or third-party notice says otherwise. Upstream dependencies and explicitly identified third-party material retain their own licenses and terms. No user manuscript, PDF, extracted private corpus, credential, or domain-specific private conclusion belongs in this source repository.
+
+## License
+
+Review Workflow Codex is licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for copyright attribution and [third-party boundaries](docs/third-party-notices.md) for material governed by upstream terms.
 
 ## Support
 
