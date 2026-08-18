@@ -10,7 +10,7 @@ Review Workflow Codex uses normal package dependencies and external scholarly se
 - [OpenAlex](https://docs.openalex.org/), [Crossref](https://www.crossref.org/documentation/retrieve-metadata/rest-api/), and [Unpaywall](https://unpaywall.org/products/api) supply bibliographic metadata and lawful open-access locations under their respective API terms. The harness does not bypass publisher access controls.
 - The Python MCP SDK, Pydantic, Typer, httpx, PyYAML, pypdf, and python-docx are installed from their normal distributions and remain governed by their upstream licenses.
 
-Consult the locked dependency set and upstream license files before redistribution. A project-level license for this repository must be chosen by the repository owner before public release.
+Consult the locked dependency set and upstream license files before redistribution. This repository is publicly visible but currently has no project-level license; public visibility alone does not grant permission to reuse or redistribute its code beyond applicable law and GitHub's terms.
 
 ## Framework inspiration without code reuse
 

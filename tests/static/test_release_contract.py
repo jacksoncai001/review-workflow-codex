@@ -67,3 +67,14 @@ def test_release_metadata_and_install_docs_point_to_the_canonical_repository() -
     assert f'Repository = "{canonical}.git"' in pyproject
     assert f"git clone {canonical}.git" in readme
     assert f"git clone {canonical}.git" in install
+
+
+def test_public_support_policy_is_explicit() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    support = (ROOT / ".github/SUPPORT.md").read_text(encoding="utf-8")
+    combined = f"{readme}\n{support}"
+
+    assert "1259081855@qq.com" in combined
+    assert "best effort" in combined.lower()
+    assert "no response-time commitment" in combined.lower()
+    assert "do not send" in combined.lower()

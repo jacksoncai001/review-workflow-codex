@@ -93,4 +93,8 @@ uv run pytest tests/integration/test_grobid_health.py --run-grobid -v
 - [Third-party boundaries](docs/third-party-notices.md)
 - [Release checklist](docs/release-checklist.md)
 
-The initial GitHub repository is private. A license must be selected explicitly before any public release. No user manuscript, PDF, extracted private corpus, credential, or domain-specific private conclusion belongs in this source repository.
+The source repository is public, but no project-level license has been granted. Public visibility does not by itself grant permission to reuse or redistribute the code beyond applicable law and GitHub's terms. No user manuscript, PDF, extracted private corpus, credential, or domain-specific private conclusion belongs in this source repository.
+
+## Support
+
+For normal usage questions, contact `1259081855@qq.com`. Support is provided on a best effort basis, with no response-time commitment. Please do not send PDFs, manuscripts, credentials, unpublished results, or other sensitive material unless the maintainer has agreed in advance. Issues, Discussions, Projects, and Wiki are intentionally disabled to keep maintenance sustainable; focused pull requests remain welcome.

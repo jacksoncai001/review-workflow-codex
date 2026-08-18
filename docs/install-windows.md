@@ -10,7 +10,7 @@
 
 Prerequisites: Windows PowerShell, Git, `uv`, Python 3.12 (which `uv` can manage), and a current Codex CLI/Desktop installation.
 
-Clone the private repository after GitHub access has been granted, then enter it:
+Clone the public repository, then enter it:
 
 ```powershell
 git clone https://github.com/jacksoncai001/review-workflow-codex.git
